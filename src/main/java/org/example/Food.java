@@ -10,7 +10,10 @@ public class Food extends Products {
         this.refrigiration = refrigiration;
     }
 
-    // Get-Method
+
+
+
+    //Get-Method
 
     public boolean getRefrigiration(){
         return this.refrigiration;

@@ -20,7 +20,7 @@ public class Products {
         return this.productid;
     }
 
-    public String getType() {
+    public String getName() {
         return this.name;
     }
 

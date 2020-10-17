@@ -16,9 +16,8 @@ public class Catalogue {
         this.catalogue = new ArrayList<>();
     }
 
+    //catalogue.add(new Food(123,"plovs",2.99,10,true));
 
-
-    // catalogue.add(new Food(123,"plovs",2.99,10,false));
 
     public void productdelivery() {
         try {
@@ -191,7 +190,7 @@ public class Catalogue {
 
     public void printcatalogue() {
         System.out.println("The catalogue contains following items:");
-            catalogue.add(new Food(123,"plovs",2.99,10,true));
+
         for (Products product : catalogue) {
             if (product instanceof Food) {
                 System.out.println("Food");

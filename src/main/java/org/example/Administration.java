@@ -1,7 +1,9 @@
 package org.example;
 
-import java.io.*;
 import javax.swing.JOptionPane;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Administration{
     public static void main(String[]args)throws IOException{
@@ -34,7 +36,7 @@ public class Administration{
                 continue;
             }
 
-            switch (choice){
+            switch (choice) {
                 case 1:
                     catalogue.productdelivery();
                     break;
@@ -52,9 +54,22 @@ public class Administration{
 
             }
 
-            further = JOptionPane.showConfirmDialog(null,"Do you want to perform any further action?","Confirmation",JOptionPane.YES_NO_OPTION);
-            if (further == 1){
-                break;
+            // Use JOptionPane, if true
+            boolean ui = false;
+
+            if (ui){
+                further = JOptionPane.showConfirmDialog(null, "Do you want to perform any further action?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                if (further == 1) {
+                    break;
+                }
+            }
+            else{
+                System.out.println("Do you want to perform any further action? (y/n)");
+                String uireply = br.readLine();
+                if (uireply.equals("n")){
+                    break;
+                }
+
             }
         }
         System.out.println("Good bye!");

@@ -1,16 +1,24 @@
 package org.example;
 // Contains a list with all products
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+;
 
 
 public class Catalogue {
     ArrayList<Products> catalogue;
 
+
     // Constructor
     public Catalogue() {
         this.catalogue = new ArrayList<>();
     }
+
+
+
+    // catalogue.add(new Food(123,"plovs",2.99,10,false));
 
     public void productdelivery() {
         try {
@@ -59,21 +67,23 @@ public class Catalogue {
                 input = br.readLine();
                 double price = Double.parseDouble(input);
 
+
+
                 switch (typenr) {
                     case 1:
-                        System.out.println("Is refrigeration needed? (j/n):");
+                        System.out.println("Is refrigeration needed? (y/n):");
                         input = br.readLine();
-                        boolean refrigiration = (input.equals("j"));
+                        boolean refrigiration = (input.equals("y"));
                         catalogue.add(new Food(productid, name, price, amount, refrigiration));
                         System.out.println("The product was added to the catalogue.");
                         break;
                     case 2:
-                        System.out.println("Is refrigeration needed? (j/n):");
+                        System.out.println("Is refrigeration needed? (y/n):");
                         input = br.readLine();
                         refrigiration = (input.equals("j"));
-                        System.out.println("Is the Pizza vegetarian? (j/n)");
+                        System.out.println("Is the Pizza vegetarian? (y/n)");
                         input = br.readLine();
-                        boolean vegetarian = input.equals("j");
+                        boolean vegetarian = input.equals("y");
                         System.out.println("What is the size of the Pizza? (20cm / 30cm / 50cm)");
                         input = br.readLine();
                         while(!input.matches("20|30|50")){
@@ -106,6 +116,7 @@ public class Catalogue {
                         break;
                     default:
                         System.out.println("You've entered an invalid value.");
+
                 }
             }
         } catch (IOException Exception) {
@@ -115,7 +126,6 @@ public class Catalogue {
         }
 
     }
-
 
     public void sell() {
         try {
@@ -181,6 +191,7 @@ public class Catalogue {
 
     public void printcatalogue() {
         System.out.println("The catalogue contains following items:");
+            catalogue.add(new Food(123,"plovs",2.99,10,true));
         for (Products product : catalogue) {
             if (product instanceof Food) {
                 System.out.println("Food");
@@ -215,10 +226,12 @@ public class Catalogue {
                 System.out.println("Energy efficiency / class: " + ((Electrical) product).getEnergyclass());
                 System.out.println("Energy consumption: " + ((Electrical) product).getConsumption());
             }
+
+            }
         }
         }
 
-    }
+
 
 
 
